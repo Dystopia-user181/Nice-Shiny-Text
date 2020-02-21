@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>Nice Shiny Text</title>
+    </head>
+    <body>
+    	<script>
+    		let angle = 0;
+    		let i = setInterval(function() {
+    			document.getElementById("shiny text").style.textShadow = (Math.cos(angle)*50).toString() + "px " + (Math.sin(angle)*50).toString() + "px 7px red, " + 
+    			(Math.cos(angle)*50).toString() + "px " + (Math.sin(angle)*50).toString() + "px 7px blue, " + 
+    			(Math.sin(angle)*50).toString() + "px " + (Math.cos(angle)*50).toString() + "px 4px green, " + 
+    			(Math.sin(angle)*50).toString() + "px " + (Math.cos(angle)*50).toString() + "px 4px yellow";
+    			angle += 0.1;
+    		}, 20);
+    	</script>
+    	<h1 id = "shiny text" align = "center" style = "margin: 100px;">OoOo Shiny!</h1>
+    </body>
