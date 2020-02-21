@@ -5,14 +5,28 @@
     </head>
     <body>
     	<script>
+    		var width = 50;
+    		var speed = 360;
     		let angle = 0;
     		let i = setInterval(function() {
-    			document.getElementById("shiny text").style.textShadow = (Math.cos(angle)*50).toString() + "px " + (Math.sin(angle)*50).toString() + "px 7px red, " + 
-    			(Math.cos(angle)*50).toString() + "px " + (Math.sin(angle)*50).toString() + "px 7px blue, " + 
-    			(Math.sin(angle)*50).toString() + "px " + (Math.cos(angle)*50).toString() + "px 4px green, " + 
-    			(Math.sin(angle)*50).toString() + "px " + (Math.cos(angle)*50).toString() + "px 4px yellow";
-    			angle += 0.1;
+    			document.getElementById("shiny text").style.textShadow = (Math.cos(angle)*width).toString() + "px " + (Math.sin(angle)*width).toString() + "px 2px red, " + 
+    			(Math.cos(angle)*width).toString() + "px " + (Math.sin(angle)*width).toString() + "px 3px blue, " + 
+    			(Math.sin(angle)*width).toString() + "px " + (Math.cos(angle)*width).toString() + "px 2px green, " + 
+    			(Math.sin(angle)*width).toString() + "px " + (Math.cos(angle)*width).toString() + "px 3px yellow";
+    			angle += speed/9000;
     		}, 20);
+    		function newWidth() {
+    			let tempW = document.getElementById("width").value;
+    			width = tempW;
+    			document.getElementById("shiny text").style.margin = (parseInt(tempW) + 50).toString() + "px";
+    		}
+    		function newSpeed() {
+    			speed = document.getElementById("speed").value;
+    		}
     	</script>
+    	<div align = "center">
+    		<input type = "number" id = "width" style = "width: 135px;" placeholder = "Width of circle" min = "1" max = "500" step = "1" value = "50" onchange = "newWidth()">
+    		<input type = "number" id = "speed" style = "width: 135px;" placeholder = "Rotation speed" min = "1" max = "3600" step = "1" value = "360" onchange = "newSpeed()">
+    	</div>
     	<h1 id = "shiny text" align = "center" style = "margin: 100px;">OoOo Shiny!</h1>
     </body>
